@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 
 import org.w3c.dom.NodeList;
 
-public class MethodChanger {
+public class MethodChanger {   
 	static ArrayList<String> p_var = new ArrayList<String>();
 	public static void main(String[] args) throws Exception {
 		// creates an input stream for the file to be parsed
@@ -49,7 +49,7 @@ public class MethodChanger {
 					System.out.println("this is interface");
 					break;
 				} else {
-					System.out.println("this is class");
+					System.out.println("this is class");        
 					System.out.println(type.getName());
 
 				}
