@@ -40,6 +40,9 @@ public class MethodChanger {
 
 	// extracting classname
 	private static void Getclass(CompilationUnit cu) {
+		List<Store> Store = new ArrayList<Store>();
+		Store st = new Store();
+		Store.add(st);
 		List<TypeDeclaration> types = cu.getTypes();
 		System.out.println(types);
 		for (TypeDeclaration type : types) {
