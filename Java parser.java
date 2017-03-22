@@ -43,6 +43,7 @@ public class MethodChanger {
 		List<Store> Store = new ArrayList<Store>();
 		Store st = new Store();
 		Store.add(st);
+		System.out.println(Store);
 		List<TypeDeclaration> types = cu.getTypes();
 		System.out.println(types);
 		for (TypeDeclaration type : types) {
