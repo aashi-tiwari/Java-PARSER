@@ -1,2 +1,2 @@
 # UML-PARSER
-Recently working on how to store classes, methods and variable of java source code after extracting java source code.
+Implemented code for extracting java source code and then storing java source code in list.
