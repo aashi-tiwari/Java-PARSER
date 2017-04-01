@@ -64,6 +64,7 @@ public class MethodChanger {
 	// extract access specifier name
 	private static void GetmodDetails(CompilationUnit cu) {
 		List<Store> MStore = new ArrayList<MStore>();
+		MStore st = new MStore();
 		List<TypeDeclaration> types = cu.getTypes();
 		for (TypeDeclaration type : types) {
 			if (type instanceof ClassOrInterfaceDeclaration) {
