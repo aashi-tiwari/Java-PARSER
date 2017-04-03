@@ -65,6 +65,7 @@ public class MethodChanger {
 	private static void GetmodDetails(CompilationUnit cu) {
 		List<Store> MStore = new ArrayList<MStore>();
 		MStore st = new MStore();
+		System.out.println(st);
 		List<TypeDeclaration> types = cu.getTypes();
 		for (TypeDeclaration type : types) {
 			if (type instanceof ClassOrInterfaceDeclaration) {
