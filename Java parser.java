@@ -78,6 +78,7 @@ public class MethodChanger {
 
 	private static void GetmemberDetails(CompilationUnit cu) {
 		List<Store> MemStore = new ArrayList<MemStore>();
+		MemStore st = new MemStore();
 		List<TypeDeclaration> types = cu.getTypes();
 		for (TypeDeclaration type : types) {
 			List<BodyDeclaration> members = type.getMembers();
