@@ -21,6 +21,8 @@ import org.w3c.dom.NodeList;
 public class MethodChanger {   
 	static ArrayList<String> p_var = new ArrayList<String>();
 	static ArrayList<String> Methods = new ArrayList<String>();
+	static ArrayList<String> methodName = new ArrayList<String>();
+	static ArrayList<String> varName = new ArrayList<String>();
 	public static void main(String[] args) throws Exception {
 		// creates an input stream for the file to be parsed
 		FileInputStream in = new FileInputStream(
