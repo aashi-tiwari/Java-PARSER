@@ -45,6 +45,9 @@ public class MethodChanger {
 	}
 
 	// extracting classname
+	private static void File() {
+		File1.add("Class " + classname[0] + "{\n");
+	}
 	private static void Getclass(CompilationUnit cu) {
 		List<Store> Store = new ArrayList<Store>();
 		Store st = new Store();
