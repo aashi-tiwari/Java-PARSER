@@ -43,6 +43,20 @@ public class MethodChanger {
 		GetmemberDetails(cu);
 		GetMethodDetails(cu);
 	}
+	private static void Parsing(String input) {
+		File file = new File(input);
+		File1.add("@startuml\n");
+		File[] files = file.listFiles();
+
+		for (File f : files) {
+			System.out.println(f);
+		}
+		System.out.println("***********************");
+		for (File f : files) {
+			if (f.getName().contains(".java")) {
+				classname = f.getName().split("\\.");
+				System.out.println(f.getName());
+			}}}
 
 	// extracting classname
 	private static void File() {
