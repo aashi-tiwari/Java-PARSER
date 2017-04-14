@@ -74,6 +74,20 @@ public class MethodChanger {
 				File();}}
 
 	// extracting classname
+		for (String s : Associate) {
+			// System.out.println(s);
+
+			File1.add(s);
+
+		}
+		for (String s : interdependency) {
+			// System.out.println(s);
+
+			File1.add(s);
+
+		}
+		File1.add("@enduml");
+	}
 	private static void File() {
 		File1.add("Class " + classname[0] + "{\n");
 	}
