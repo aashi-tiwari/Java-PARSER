@@ -56,7 +56,22 @@ public class MethodChanger {
 			if (f.getName().contains(".java")) {
 				classname = f.getName().split("\\.");
 				System.out.println(f.getName());
-			}}}
+			try {
+					cu = JavaParser.parse(f);
+				//	System.out.println(cu);
+					JavaParser.setCacheParser(false);
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				Getclass(cu);
+				// GetmodDetails(cu);
+				GetmemberDetails(cu);
+				GetMethodDetails(cu);
+				File();}}
 
 	// extracting classname
 	private static void File() {
