@@ -41,20 +41,63 @@ public class MethodChanger {
 	static PlantUmlGenerator plant = new PlantUmlGenerator();
 	public static void main(String[] args) throws Exception {
 		// creates an input stream for the file to be parsed
-		FileInputStream in = new FileInputStream(
-				"C:\\Users\\DES\\Desktop\\SJSU SE\\202\\Personal project\\umlparser\\A.java");
 
-		// parse the file
-		CompilationUnit cu = JavaParser.parse(in);
+		String input = "C:/Users/DES/Desktop/SJSU/202/Personal project/test_cases/test5";
+		Storing(input);
+		Parsing(input);/**/
+		plant.createUML(File1);
+		for (String s : File1) {
+			System.out.println(s);
+		}
 
-		// change the methods names and parameters
+	}
 
-		// prints the changed compilation unit
-		System.out.println(cu.toString());
-		Getclass(cu);
-		GetmodDetails(cu);
-		GetmemberDetails(cu);
-		GetMethodDetails(cu);
+	private static void File() {
+		File1.add("Class " + classname[0] + "{\n");
+
+		// System.out.println(Classes);
+		for (String s : varName) {
+		//	System.out.println(s);
+			String[] va = s.split(": ");
+			if (va[1].contains("Collection")) {
+				continue;
+			}
+			if (store.contains(va[1])) {
+				continue;
+			}
+			File1.add(s);
+
+		}
+		// uml.append("\n");
+		for (String s : methodName) {
+			// System.out.println(s);
+			File1.add(s);
+
+		}
+		for (String s : constructor) {
+			File1.add(s);
+
+		}
+
+		File1.add("}\n");
+		for (String s : Classes) {
+			// System.out.println(s);
+			File1.add(s);
+
+		}
+
+		for (String s : Interfaces) {
+			// System.out.println(s);
+			File1.add(s);
+
+		}
+
+		varName.clear();
+		methodName.clear();
+		Classes.clear();
+		Interfaces.clear();
+		constructor.clear();
+
 	}
 	private static void Parsing(String input) {
 		File file = new File(input);
