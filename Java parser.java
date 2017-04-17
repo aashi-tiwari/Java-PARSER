@@ -21,11 +21,24 @@ import org.w3c.dom.NodeList;
 public class MethodChanger {   
 	static ArrayList<String> class_det = new ArrayList<String>();
 	static ArrayList<String> Classes = new ArrayList<String>();
+	static ArrayList<String> Interfaces = new ArrayList<String>();
 	static ArrayList<String> p_var = new ArrayList<String>();
 	static ArrayList<String> methodName = new ArrayList<String>();
 	static ArrayList<String> varName = new ArrayList<String>();
 	static ArrayList<String> File1 = new ArrayList<String>();
-	static StringBuffer uml = new StringBuffer();
+	static ArrayList<String> store = new ArrayList<String>();
+	static ArrayList<String> Associate = new ArrayList<String>();
+	static ArrayList<String> interdependency = new ArrayList<String>();
+	static ArrayList<String> constructassociate = new ArrayList<String>();
+	static ArrayList<String> intf = new ArrayList<String>();
+	static StringBuffer trying = new StringBuffer();
+	static StringBuffer getvar = new StringBuffer();
+	static ArrayList<String> storevar = new ArrayList<String>();
+	static ArrayList<String> constructor = new ArrayList<String>();
+	static CompilationUnit cu;
+	static String[] classname;
+	static String[] inter;
+	static PlantUmlGenerator plant = new PlantUmlGenerator();
 	public static void main(String[] args) throws Exception {
 		// creates an input stream for the file to be parsed
 		FileInputStream in = new FileInputStream(
