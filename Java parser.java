@@ -253,10 +253,16 @@ public class MethodChanger {
 
 					break;
 				} else {
-					System.out.println("this is class");        
-					System.out.println(type.getName());
-
-				}
+					if (((ClassOrInterfaceDeclaration) type).getImplements() != null) {
+						classtype = ((ClassOrInterfaceDeclaration) type)
+								.getImplements();
+						for (int i = 0; i < classtype.size(); i++) {
+							String text = classtype.get(i).toString()
+									.replace("[", "").replace("]", "");
+							Classes.add((sb.append(text + "<|.. "
+									+ classname[0] + "\n")).toString());
+							sb.setLength(0);
+						}
 			}
 		}
 	}
