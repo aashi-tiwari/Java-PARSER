@@ -156,7 +156,82 @@ public class MethodChanger {
 	}
 	private static void File() {
 		File1.add("Class " + classname[0] + "{\n");
+	}private static void Parsing(String input) {
+		File file = new File(input);
+		File1.add("@startuml\n");
+		File[] files = file.listFiles();
+
+		for (File f : files) {
+		}
+		// System.out.println("***********************");
+		for (File f : files) {
+			if (f.getName().contains(".java")) {
+				classname = f.getName().split("\\.");
+				// System.out.println(f.getName());
+				try {
+					cu = JavaParser.parse(f);
+					// System.out.println(cu);
+					JavaParser.setCacheParser(false);
+				} catch (ParseException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				Getclass(cu);
+				// GetmodDetails(cu);
+				GetmemberDetails(cu);
+				GetMethodDetails(cu);
+				GetConstructorDetails(cu);
+				File();
+
+				// varName = (ArrayList<String>) GetmemberDetails(cu);
+				// methodName = (ArrayList<String>) GetMethodDetails(cu);
+			}
+
+		}
+		for (String s : Associate) {
+			// System.out.println(s);
+
+			File1.add(s);
+
+		}
+		for (String s : constructassociate) {
+			// System.out.println(s);
+
+			File1.add(s);
+
+		}
+		for (String s : interdependency) {
+			// System.out.println(s);
+			String[] s1 = s.split(" ");
+			if (intf.contains(s1[0]) == false && intf.contains(s1[2])) {
+				File1.add(s);
+			}
+			// if(intf.contains(as[0].toString()) == false &&
+			// intf.contains(as[3].toString()))
+
+		}
+		File1.add("@enduml");
 	}
+
+	private static void Storing(String input) {
+		File file = new File(input);
+		File[] files = file.listFiles();
+		// System.out.println("***********************");
+		for (File f : files) {
+			if (f.getName().contains(".java")) {
+				classname = f.getName().split("\\.");
+				String st = classname[0].toString();
+				// System.out.println(st);
+				store.add(st);
+			}
+		}
+
+	}
+
+	// extracting classname
 	private static void Getclass(CompilationUnit cu) {
 		List<Store> Store = new ArrayList<Store>();
 		Store st = new Store();
