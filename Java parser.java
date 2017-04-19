@@ -237,9 +237,20 @@ public class MethodChanger {
 		List<TypeDeclaration> types = cu.getTypes();
 		StringBuffer sb = new StringBuffer();
 		for (TypeDeclaration type : types) {
+			// System.out.println(type);
 			if (type instanceof ClassOrInterfaceDeclaration) {
 				if (((ClassOrInterfaceDeclaration) type).isInterface()) {
-					System.out.println("this is interface");
+					// System.out.println("this is interface");
+					sb.append("interface ");
+					sb.append(((ClassOrInterfaceDeclaration) type).getName());
+					Interfaces.add(sb.toString());
+					if (intf.contains(((ClassOrInterfaceDeclaration) type)
+							.getName()) == false) {
+						intf.add(((ClassOrInterfaceDeclaration) type).getName());
+					}
+
+					sb.setLength(0);
+
 					break;
 				} else {
 					System.out.println("this is class");        
