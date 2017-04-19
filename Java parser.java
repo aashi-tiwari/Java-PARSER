@@ -3,22 +3,29 @@ import japa.parser.ParseException;
 import japa.parser.ast.CompilationUnit;
 import japa.parser.ast.body.BodyDeclaration;
 import japa.parser.ast.body.ClassOrInterfaceDeclaration;
+import japa.parser.ast.body.ConstructorDeclaration;
 import japa.parser.ast.body.FieldDeclaration;
 import japa.parser.ast.body.MethodDeclaration;
+import japa.parser.ast.body.Parameter;
 import japa.parser.ast.body.TypeDeclaration;
+import japa.parser.ast.type.ClassOrInterfaceType;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.ObjectInputStream.GetField;
 import java.lang.reflect.Modifier;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Scanner;
 import java.util.regex.Pattern;
+import java.io.File;
 
 import org.w3c.dom.NodeList;
 
-public class MethodChanger {   
+public class MethodChanger {
 	static ArrayList<String> class_det = new ArrayList<String>();
 	static ArrayList<String> Classes = new ArrayList<String>();
 	static ArrayList<String> Interfaces = new ArrayList<String>();
@@ -28,6 +35,7 @@ public class MethodChanger {
 	static ArrayList<String> File1 = new ArrayList<String>();
 	static ArrayList<String> store = new ArrayList<String>();
 	static ArrayList<String> Associate = new ArrayList<String>();
+	static ArrayList<String> duplicate = new ArrayList<String>();
 	static ArrayList<String> interdependency = new ArrayList<String>();
 	static ArrayList<String> constructassociate = new ArrayList<String>();
 	static ArrayList<String> intf = new ArrayList<String>();
@@ -39,10 +47,11 @@ public class MethodChanger {
 	static String[] classname;
 	static String[] inter;
 	static PlantUmlGenerator plant = new PlantUmlGenerator();
+
 	public static void main(String[] args) throws Exception {
 		// creates an input stream for the file to be parsed
 
-		String input = "C:/Users/DES/Desktop/SJSU/202/Personal project/test_cases/test5";
+		String input = "C:/Users/DES/Desktop/SJSU/202/Personal project/test_cases/test3";
 		Storing(input);
 		Parsing(input);/**/
 		plant.createUML(File1);
@@ -57,7 +66,7 @@ public class MethodChanger {
 
 		// System.out.println(Classes);
 		for (String s : varName) {
-		//	System.out.println(s);
+			// System.out.println(s);
 			String[] va = s.split(": ");
 			if (va[1].contains("Collection")) {
 				continue;
@@ -99,6 +108,7 @@ public class MethodChanger {
 		constructor.clear();
 
 	}
+
 	private static void Parsing(String input) {
 		File file = new File(input);
 		File1.add("@startuml\n");
