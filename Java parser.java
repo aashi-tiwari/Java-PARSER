@@ -232,13 +232,10 @@ public class MethodChanger {
 	}
 
 	// extracting classname
-	private static void Getclass(CompilationUnit cu) {
-		List<Store> Store = new ArrayList<Store>();
-		Store st = new Store();
-		Store.add(st);
-		System.out.println(Store);
+	private static List Getclass(CompilationUnit cu) {
+	List<ClassOrInterfaceType> classtype;
 		List<TypeDeclaration> types = cu.getTypes();
-		System.out.println(types);
+		StringBuffer sb = new StringBuffer();
 		for (TypeDeclaration type : types) {
 			System.out.println(type);
 			if (type instanceof ClassOrInterfaceDeclaration) {
