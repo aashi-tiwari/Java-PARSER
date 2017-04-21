@@ -304,9 +304,12 @@ public class MethodChanger {
 	}
 
 	private static void GetmemberDetails(CompilationUnit cu) {
-		List<Store> MemStore = new ArrayList<MemStore>();
-		MemStore st = new MemStore();
 		List<TypeDeclaration> types = cu.getTypes();
+		ArrayList<String> Var = new ArrayList<String>();
+		String rev = null;
+		int flag = 0;
+		// System.out.println(getvar);
+		StringBuffer sb = new StringBuffer();
 		for (TypeDeclaration type : types) {
 			List<BodyDeclaration> members = type.getMembers();
 			for (BodyDeclaration member : members) {
