@@ -314,8 +314,12 @@ public class MethodChanger {
 			List<BodyDeclaration> members = type.getMembers();
 			for (BodyDeclaration member : members) {
 				if (member instanceof FieldDeclaration) {
-				String st = ((FieldDeclaration) member).getVariables().toString();
-                    System.out.println(st);
+					String st = (((FieldDeclaration) member).getType()
+							.toString());
+
+					storevar.add(((FieldDeclaration) member).getVariables()
+							.toString());
+					Var.add(st);
 					System.out.println(((FieldDeclaration) member)
 							.getModifiers());
 					int a = ((FieldDeclaration) member).getModifiers();
