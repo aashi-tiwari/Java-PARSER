@@ -320,8 +320,6 @@ public class MethodChanger {
 					storevar.add(((FieldDeclaration) member).getVariables()
 							.toString());
 					Var.add(st);
-					System.out.println(((FieldDeclaration) member)
-							.getModifiers());
 					int a = ((FieldDeclaration) member).getModifiers();
 					if (a == 1) {
 						System.out.println("public variable");
