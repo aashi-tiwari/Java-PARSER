@@ -264,7 +264,28 @@ public class MethodChanger {
 							sb.setLength(0);
 						}
 			}
+		
+				}
+				if (((ClassOrInterfaceDeclaration) type).getExtends() != null) {
+						classtype = ((ClassOrInterfaceDeclaration) type)
+								.getExtends();
+						for (int i = 0; i < classtype.size(); i++) {
+							String text = classtype.get(i).toString()
+									.replace("[", "").replace("]", "");
+							Classes.add((sb.append(text + "<|--" + classname[0]
+									+ "\n")).toString());
+							sb.setLength(0);
+							// System.out.println(text + " <|.. " + parts[0]);
+						}
+						// System.out.println();
+					}
+				}
+			}
+
 		}
+		// System.out.println(intf);
+		return Classes;
+	
 	}
 
 	// extract access specifier name
