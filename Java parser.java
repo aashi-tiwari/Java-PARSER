@@ -322,8 +322,10 @@ public class MethodChanger {
 					Var.add(st);
 					int a = ((FieldDeclaration) member).getModifiers();
 					if (a == 1) {
-						System.out.println("public variable");
+
+						sb.append("+ ");
 					}
+
 					if (a == 2) {
 						System.out.println("private Variable");
 					}
