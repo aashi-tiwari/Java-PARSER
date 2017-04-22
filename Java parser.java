@@ -327,7 +327,8 @@ public class MethodChanger {
 					}
 
 					if (a == 2) {
-						System.out.println("private Variable");
+						// System.out.println("private Variable");
+						sb.append("- ");
 					}
 				}
 			
