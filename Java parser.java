@@ -186,8 +186,7 @@ public class MethodChanger {
 				GetConstructorDetails(cu);
 				File();
 
-				// varName = (ArrayList<String>) GetmemberDetails(cu);
-				// methodName = (ArrayList<String>) GetMethodDetails(cu);
+				
 			}
 
 		}
@@ -209,8 +208,7 @@ public class MethodChanger {
 			if (intf.contains(s1[0]) == false && intf.contains(s1[2])) {
 				File1.add(s);
 			}
-			// if(intf.contains(as[0].toString()) == false &&
-			// intf.contains(as[3].toString()))
+			
 
 		}
 		File1.add("@enduml");
