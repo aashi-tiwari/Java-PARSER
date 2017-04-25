@@ -18,6 +18,7 @@ import java.lang.reflect.Modifier;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
@@ -25,7 +26,7 @@ import java.io.File;
 
 import org.w3c.dom.NodeList;
 
-public class MethodChanger {
+public class Umlparser {
 	static ArrayList<String> class_det = new ArrayList<String>();
 	static ArrayList<String> Classes = new ArrayList<String>();
 	static ArrayList<String> Interfaces = new ArrayList<String>();
@@ -37,29 +38,35 @@ public class MethodChanger {
 	static ArrayList<String> Associate = new ArrayList<String>();
 	static ArrayList<String> duplicate = new ArrayList<String>();
 	static ArrayList<String> interdependency = new ArrayList<String>();
-	static ArrayList<String> constructassociate = new ArrayList<String>();
 	static ArrayList<String> intf = new ArrayList<String>();
 	static StringBuffer trying = new StringBuffer();
-	static StringBuffer getvar = new StringBuffer();
+	static ArrayList<String> getvar = new ArrayList<String>();
 	static ArrayList<String> storevar = new ArrayList<String>();
 	static ArrayList<String> constructor = new ArrayList<String>();
 	static CompilationUnit cu;
 	static String[] classname;
 	static String[] inter;
 	static PlantUmlGenerator plant = new PlantUmlGenerator();
+	static String input;
+	static String output;
 
 	public static void main(String[] args) throws Exception {
 		// creates an input stream for the file to be parsed
 
-		String input = "C:/Users/DES/Desktop/SJSU/202/Personal project/test_cases/test3";
-		Storing(input);
-		Parsing(input);/**/
-		plant.createUML(File1);
+	String input = "C:/Users/DES/Desktop/SJSU/202/UMLParser/testcase/test5";
+		//input = args[0];
+		//output = args[1]; 
+	output = "C:/Users/DES/Desktop/SJSU/202/UMLParser/testcase/test5/5.svg";
+		File file = new File(input);
+		Storing(file);
+		Parsing(file);/**/
+		plant.createUML(File1, output);
 		for (String s : File1) {
 			System.out.println(s);
 		}
 
 	}
+
 
 	private static void File() {
 		File1.add("Class " + classname[0] + "{\n");
