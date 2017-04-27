@@ -96,13 +96,13 @@ public class Umlparser {
 
 		File1.add("}\n");
 		for (String s : Classes) {
-			// System.out.println(s);
+			
 			File1.add(s);
 
 		}
 
 		for (String s : Interfaces) {
-			// System.out.println(s);
+			
 			File1.add(s);
 
 		}
