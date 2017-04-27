@@ -84,9 +84,8 @@ public class Umlparser {
 			File1.add(s);
 
 		}
-		// uml.append("\n");
+		
 		for (String s : methodName) {
-			// System.out.println(s);
 			File1.add(s);
           
 		}
