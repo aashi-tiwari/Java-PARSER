@@ -13,7 +13,7 @@ import net.sourceforge.plantuml.SourceStringReader;
 public class PlantUmlGenerator {
 	 String sourcefile;
 	 int flag = 0;
-	public void createUML(ArrayList<String> file1) {
+	public void createUML(ArrayList<String> file1, String output) {
 		for(String file : file1){
 			if(flag == 0){
 				sourcefile = file + "\n";
@@ -22,3 +22,18 @@ public class PlantUmlGenerator {
 				sourcefile = sourcefile + file + "\n";
 			}
 		}
+		SourceStringReader read = new SourceStringReader(sourcefile);
+		try {
+			FileOutputStream classDiagram = new FileOutputStream(new File(output));
+		    try {
+				read.generateImage(classDiagram, new FileFormatOption(FileFormat.SVG, false));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}
